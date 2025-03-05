@@ -1,4 +1,4 @@
-// cc_13.js
+// cc_13.js Task 1 - 5
 
 function addEmployeeCard(name, position) {
     const employeeContainer = document.getElementById("employeeContainer");
@@ -28,7 +28,7 @@ function addEmployeeCard(name, position) {
 function highlightAllCards() {
     const cards = document.querySelectorAll(".employee-card");
     Array.from(cards).forEach(card => {
-        card.style.border = "2px solid blue";
+        card.style.border = "5px solid black";
         card.style.backgroundColor = "#e0f7fa";
     });
 }
