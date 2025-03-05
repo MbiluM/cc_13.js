@@ -1,12 +1,10 @@
+// cc_13.js
+
 function addEmployeeCard(name, position) {
     const employeeContainer = document.getElementById("employeeContainer");
     
     const card = document.createElement("div");
     card.setAttribute("class", "employee-card");
-    card.style.border = "1px solid #000";
-    card.style.padding = "10px";
-    card.style.margin = "10px 0";
-    card.style.backgroundColor = "#fff";
     
     const nameHeading = document.createElement("h3");
     nameHeading.textContent = name;
@@ -16,7 +14,8 @@ function addEmployeeCard(name, position) {
     
     const removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
-    removeButton.addEventListener("click", function() {
+    removeButton.addEventListener("click", function(event) {
+        event.stopPropagation();
         employeeContainer.removeChild(card);
     });
     
@@ -26,6 +25,19 @@ function addEmployeeCard(name, position) {
     employeeContainer.appendChild(card);
 }
 
+function highlightAllCards() {
+    const cards = document.querySelectorAll(".employee-card");
+    Array.from(cards).forEach(card => {
+        card.style.border = "2px solid blue";
+        card.style.backgroundColor = "#e0f7fa";
+    });
+}
+
 // Example usage
 addEmployeeCard("John Doe", "Software Engineer");
 addEmployeeCard("Jane Smith", "Project Manager");
+
+
+document.getElementById("employeeContainer").addEventListener("click", function() {
+    console.log("Employee card clicked!");
+});
